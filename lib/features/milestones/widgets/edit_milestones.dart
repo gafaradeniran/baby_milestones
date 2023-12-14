@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:baby_milestones/app_config/utils/asset_resources.dart';
 import 'package:baby_milestones/features/shared/app_button.dart';
 import 'package:baby_milestones/features/shared/custom_textfield.dart';
 import 'package:baby_milestones/features/milestones/model/milestone_model.dart';
@@ -50,7 +51,8 @@ class _EditMilestoneState extends State<EditMilestone> {
             builder: (context, milestoneProvider, child) {
           return Column(
             children: [
-              const Text('Edit This Milestone'),
+              const Text('Edit This Milestone',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               SizedBox(height: 20.h),
               CustomTextField(
                 controller: titleController,
@@ -71,7 +73,7 @@ class _EditMilestoneState extends State<EditMilestone> {
                       width: 200,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(img!),
+                          image: AssetImage(img ?? AssetResources.onboarding2),
                           fit: BoxFit.cover,
                         ),
                       )),
