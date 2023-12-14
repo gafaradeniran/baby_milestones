@@ -1,10 +1,10 @@
-import 'package:baby_milestones/app_config/shared/media_query.dart';
+import 'package:baby_milestones/features/shared/media_query.dart';
 import 'package:flutter/material.dart';
 
-void openModalScreen(BuildContext context, Widget widget) {
+openModalScreen(BuildContext context, Widget widget) {
   showModalBottomSheet(
     context: context,
-    isScrollControlled: true, // Set to true for a scrollable modal bottom sheet
+    isScrollControlled: true,
     builder: (BuildContext context) {
       return SingleChildScrollView(
         child: Container(

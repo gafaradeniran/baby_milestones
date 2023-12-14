@@ -1,14 +1,13 @@
 import 'dart:io';
 
-import 'package:baby_milestones/app_config/shared/app_button.dart';
-import 'package:baby_milestones/app_config/shared/custom_textfield.dart';
+import 'package:baby_milestones/features/shared/app_button.dart';
+import 'package:baby_milestones/features/shared/custom_textfield.dart';
 import 'package:baby_milestones/features/milestones/model/milestone_model.dart';
 import 'package:baby_milestones/features/milestones/services/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CreateMilestone extends StatefulWidget {
   const CreateMilestone({super.key});
@@ -23,7 +22,6 @@ class _CreateMilestoneState extends State<CreateMilestone> {
   TextEditingController noteController = TextEditingController();
   File? _selectedImage;
   final ImagePicker _imagePicker = ImagePicker();
-  // final Future<SharedPreferences> _prefsService = SharedPreferences.getInstance();
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-// milestone_provider.dart
+import 'dart:convert';
 import 'package:baby_milestones/features/milestones/model/milestone_model.dart';
 import 'package:baby_milestones/features/milestones/services/shared_prefs.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +22,16 @@ class MilestoneProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> editMilestone(int index, Milestone editedMilestone) async {
-    _milestones[index] = editedMilestone;
-    await _saveMilestones();
-    notifyListeners();
+  Future<void> updateMilestone(int index, Milestone updatedMilestone) async {
+    if (index >= 0 && index < _milestones.length) {
+      _milestones[index] = updatedMilestone;
+      await _saveMilestones();
+      notifyListeners();
+    }
+  }
+
+  int getIndex(Milestone milestone) {
+    return _milestones.indexOf(milestone);
   }
 
   Future<void> deleteMilestone(int index) async {
@@ -42,13 +48,23 @@ class MilestoneProvider extends ChangeNotifier {
   }
 
   Future<void> _loadMilestones() async {
-    final prefs = await SharedPreferences.getInstance();
-    final encodedMilestones = prefs.getStringList(_storageKey);
-    if (encodedMilestones != null) {
-      _milestones = encodedMilestones
-          .map((e) => Milestone.fromJson(e as Map<String, dynamic>))
-          .toList();
-      notifyListeners();
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final encodedMilestones = prefs.getStringList(_storageKey);
+
+      if (encodedMilestones != null) {
+        _milestones = encodedMilestones
+            .map((encodedMilestone) => Milestone.fromJson(
+                  Map<String, dynamic>.from(
+                    json.decode(encodedMilestone),
+                  ),
+                ))
+            .toList();
+
+        notifyListeners();
+      }
+    } catch (e) {
+      throw ('Error decoding milestone: $e');
     }
   }
 }

@@ -1,5 +1,7 @@
+import 'package:baby_milestones/features/dashboard/dashboard.dart';
 import 'package:baby_milestones/features/milestones/home.dart';
 import 'package:baby_milestones/features/onboarding/onboarding_screen.dart';
+import 'package:baby_milestones/features/root_screen/root.dart';
 import 'package:baby_milestones/features/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,13 +23,12 @@ class AppRoutes {
 
       //homescreen
       case AppRoutes.home:
+        return MaterialPageRoute(builder: (context) => const RootScreen());
+      case AppRoutes.milestonesScreen:
         return MaterialPageRoute(builder: (context) => const Homepage());
 
-      // case AppRoutes.dashboardScreen:
-      //   return MaterialPageRoute(builder: (context) => const Homepage());
-
-      // case AppRoutes.milestonesScreen:
-      //   return MaterialPageRoute(builder: (context) => const Homepage());
+      case AppRoutes.dashboardScreen:
+        return MaterialPageRoute(builder: (context) => const Dashboard());
 
       default:
         return MaterialPageRoute(

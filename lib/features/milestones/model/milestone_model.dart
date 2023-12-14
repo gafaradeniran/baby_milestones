@@ -1,9 +1,7 @@
-// milestone.dart
-
 class Milestone {
   final String title;
   final String note;
-  final String imagePath; // Path to the image file or URL
+  final String imagePath;
 
   Milestone({required this.title, required this.note, required this.imagePath});
 
@@ -23,20 +21,3 @@ class Milestone {
     );
   }
 }
-
-
-//test data
-// List<Milestone> milestone = [
-//   Milestone(
-//     imagePath: AssetResources.onboarding1,
-//     title: 'Baby First Word',
-//     note:
-//         'Toda, my baby ultered his first word, he said daddy!. today is indeed a great day',
-//   ),
-//   Milestone(
-//     imagePath: AssetResources.onboarding2,
-//     title: 'Baby Travels',
-//     note:
-//         'Toda, my baby ultered his first word, he said daddy!. today is indeed a great day',
-//   ),
-// ];

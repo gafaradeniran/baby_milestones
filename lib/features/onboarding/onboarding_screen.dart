@@ -1,5 +1,5 @@
 import 'package:baby_milestones/app_config/navigation/navigation_routes.dart';
-import 'package:baby_milestones/app_config/shared/app_button.dart';
+import 'package:baby_milestones/features/shared/app_button.dart';
 import 'package:baby_milestones/features/onboarding/model/onboarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +14,6 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  // bool showButton = true;
 
   @override
   Widget build(BuildContext context) {
